@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
+    "start": "nodemon src/index.js --exec babel-node --ext js,graphql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^2.10.1",
     "dotenv": "^8.2.0",
-    "graphql": "^14.6.0"
+    "express": "^4.17.1",
+    "graphql": "^14.6.0",
+    "graphql-import": "^1.0.0-beta.2",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
