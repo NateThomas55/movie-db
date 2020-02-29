@@ -1,0 +1,34 @@
+type Query {
+  upcomingMovies(data: UpcomingMovieInput): [UpcomingMoviesList]
+}
+
+type UpcomingMoviesList {
+  movies: Movie
+}
+
+type Movie {
+  id: Int!
+  poster: String!
+  title: String!
+  releaseDate: String!
+  popularity: Int!
+  overview: String!
+  genres: [Genre]
+  preview: Videos
+}
+
+type Videos {
+  type: String!
+  id: String!
+  site: String!
+  size: Int!
+}
+
+type Genre {
+  name: String!
+}
+
+input UpcomingMovieInput {
+  maximum: String
+  minimum: String
+}
