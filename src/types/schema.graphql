@@ -1,27 +1,43 @@
 type Query {
-  upcomingMovies(data: UpcomingMovieInput): [UpcomingMoviesList]
+  getMovie(id: Int): Movie!
+  getUpcomingMovies(limit: Int): UpcomingMoviesList
 }
 
 type UpcomingMoviesList {
-  movies: Movie
+  movies: [UpcomingMovie]
+}
+
+type UpcomingMovie {
+  id: Int!
+  poster_path: String
+  title: String
+  release_date: String
 }
 
 type Movie {
   id: Int!
-  poster: String!
+  backdrop_path: String
+  poster_path: String
   title: String!
-  releaseDate: String!
-  popularity: Int!
+  release_date: String!
+  popularity: Int
   overview: String!
-  genres: [Genre]
-  preview: Videos
+  vote_average: Int!
+  videos: [Video]
+  credits: [Cast]
 }
 
-type Videos {
+type Video {
   type: String!
   id: String!
   site: String!
   size: Int!
+}
+
+type Cast {
+  name: String!
+  character: String!
+  profile_path: String
 }
 
 type Genre {
