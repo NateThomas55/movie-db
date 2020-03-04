@@ -1,7 +1,6 @@
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import { importSchema } from 'graphql-import'
-import { makeExecutableSchema } from 'graphql-tools'
 import 'dotenv/config'
 
 import resolvers from '../src/resolvers'
@@ -11,11 +10,8 @@ async function start() {
   const app = express()
   //importSchema imports schema
   const typeDefs = await importSchema('./src/types/schema.graphql')
-  const Resolvers = resolvers
-  // stitch the schemas together
-  const schema = makeExecutableSchema({ typeDefs, Resolvers })
   // apollo server
-  const server = new ApolloServer({ schema })
+  const server = new ApolloServer({ typeDefs, resolvers: resolvers })
 
   server.applyMiddleware({ app })
 
