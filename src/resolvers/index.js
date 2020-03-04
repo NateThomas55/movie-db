@@ -1,5 +1,6 @@
 import _ from 'lodash'
 
-import UpcomingMovies from './upcomingMovies.resolver'
+import getMovie from './getMovie.resolver'
+import getUpcomingMovies from './getUpcomingMovies.resolver'
 
-export default _.merge(UpcomingMovies)
+export default _.merge(getMovie, getUpcomingMovies)
